@@ -931,7 +931,7 @@ export function Navbar() {
               </Button>
             )}
 
-            <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+            <div className="w-7 h-7 bg-primary rounded-full flex items-center justify-center">
               <img src="/profile.svg" alt="profile" />
             </div>
           </div>

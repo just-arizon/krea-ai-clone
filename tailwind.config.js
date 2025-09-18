@@ -6,7 +6,8 @@ const config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
-
+         "./node_modules/flowbite/**/*.js",       // ✅ core Flowbite
+    "./node_modules/flowbite-react/**/*.js", // ✅ React components
   ],
   theme: {
     extend: {
@@ -19,6 +20,7 @@ const config = {
   darkMode: "class",
   plugins: [
     heroui(),                      // ✅ HeroUI plugin
+     require("flowbite/plugin"),  
     require("tailwindcss-animate"), // ✅ animations plugin
 
   ],

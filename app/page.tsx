@@ -2,24 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  ImageIcon,
-  Video,
-  Zap,
-  Wand2,
-  Edit3,
-  ArrowUp,
-  Move,
   Brain,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
-import Img1 from "@/public/open-source.png"
+import { Gallery } from "@/components/gallery";
+import Img1 from "@/public/open-source.png";
 
 export default function AIGallery() {
-
-
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen container mx-auto max-w-7xl pt-16 px-4 flex-grow">
       <main className="px-2 lg:py-16 py-8">
         {/* Hero Section */}
         <section className="mb-12 overflow-hidden">
@@ -85,7 +75,9 @@ export default function AIGallery() {
                         FLUX.1 Krea
                       </p>
                       <p className="text-white/70 text-xs">
-                        We're making the weights to our FLUX.1 Krea model open-source.Download and run our model el weights,read the technical report, or generate with it in Krea Image.
+                        We're making the weights to our FLUX.1 Krea model
+                        open-source.Download and run our model el weights,read
+                        the technical report, or generate with it in Krea Image.
                       </p>
                     </div>
                     <div className="flex items-end">
@@ -174,7 +166,7 @@ export default function AIGallery() {
                         Generate images with custom styles in Text and
                         Instagram.
                       </p>
-                       <Button
+                      <Button
                         variant="ghost"
                         size="sm"
                         className="rounded-full text-primary py-2 px-3 bg-gray-100 dark:bg-[#262626]"
@@ -234,7 +226,7 @@ export default function AIGallery() {
                       <p className="text-xs text-muted-foreground">
                         Generate videos with Haiper, Pika, Runway and others.
                       </p>
-                       <Button
+                      <Button
                         variant="ghost"
                         size="sm"
                         className="rounded-full text-primary py-2 px-3 bg-gray-100 dark:bg-[#262626]"
@@ -292,7 +284,7 @@ export default function AIGallery() {
                         Realtime AI rendering on a canvas.Instant feedback
                         loops.
                       </p>
-                       <Button
+                      <Button
                         variant="ghost"
                         size="sm"
                         className="rounded-full text-primary py-2 px-3 bg-gray-100 dark:bg-[#262626]"
@@ -374,14 +366,14 @@ export default function AIGallery() {
                     <span className="flex gap-1 items-center">
                       <h4 className="font-semibold text-xs">Enhancer</h4>
                       <Badge className="bg-blue-500 text-white text-[8px]">
-                          NEW
-                        </Badge>
+                        NEW
+                      </Badge>
                     </span>
                     <span className="flex items-center justify-between">
                       <p className="text-xs text-muted-foreground">
                         Upscale and enhance images and videos up to 22k.
                       </p>
-                       <Button
+                      <Button
                         variant="ghost"
                         size="sm"
                         className="rounded-full text-primary py-2 px-3 bg-gray-100 dark:bg-[#262626]"
@@ -449,15 +441,15 @@ export default function AIGallery() {
                     <span className="flex gap-1 items-center">
                       <h4 className="font-semibold text-xs">Edit</h4>
                       <Badge className="bg-blue-500 text-white text-[8px]">
-                          NEW
-                        </Badge>
+                        NEW
+                      </Badge>
                     </span>
                     <span className="flex items-center justify-between">
                       <p className="text-xs text-muted-foreground">
                         Add objects, change style, or expand photos and
                         generations.
                       </p>
-                       <Button
+                      <Button
                         variant="ghost"
                         size="sm"
                         className="rounded-full text-primary py-2 px-3 bg-gray-100 dark:bg-[#262626]"
@@ -513,14 +505,14 @@ export default function AIGallery() {
                     <span className="flex gap-1 items-center">
                       <h4 className="font-semibold text-xs">Video Lipsync</h4>
                       <Badge className="bg-blue-500 text-white text-[8px]">
-                          NEW
-                        </Badge>
+                        NEW
+                      </Badge>
                     </span>
                     <span className="flex items-center justify-between">
                       <p className="text-xs text-muted-foreground">
                         Lip sync any video to any audio.
                       </p>
-                       <Button
+                      <Button
                         variant="ghost"
                         size="sm"
                         className="rounded-full text-primary py-2 px-3 bg-gray-100 dark:bg-[#262626]"
@@ -531,7 +523,7 @@ export default function AIGallery() {
                   </div>
                 </div>
               </CardContent>
-            </Card>  
+            </Card>
             {/* Card 7 */}
             <Card className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent">
               <CardContent className="py-3 px-2">
@@ -565,14 +557,14 @@ export default function AIGallery() {
                     <span className="flex gap-1 items-center">
                       <h4 className="font-semibold text-xs">Motion Transfer</h4>
                       <Badge className="bg-blue-500 text-white text-[8px]">
-                          NEW
-                        </Badge>
+                        NEW
+                      </Badge>
                     </span>
                     <span className="flex items-center justify-between">
                       <p className="text-xs text-muted-foreground">
                         Transfer motion to images and animate characters.
                       </p>
-                       <Button
+                      <Button
                         variant="ghost"
                         size="sm"
                         className="rounded-full text-primary py-2 px-3 bg-gray-100 dark:bg-[#262626]"
@@ -588,8 +580,9 @@ export default function AIGallery() {
             <Card className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent">
               <CardContent className="py-3 px-2">
                 <div className="flex items-center gap-2">
-                  <div className="relative flex aspect-square items-center justify-center rounded-[10px] inset-ring-[0.5px] inset-ring-white/10 block shrink-0 bg-teal-400"
-                  style={{
+                  <div
+                    className="relative flex aspect-square items-center justify-center rounded-[10px] inset-ring-[0.5px] inset-ring-white/10 block shrink-0 bg-teal-400"
+                    style={{
                       width: "42px",
                       height: "42px",
                     }}
@@ -619,45 +612,8 @@ export default function AIGallery() {
             </Card>
           </div>
         </section>
-
-        {/* Gallery Section */}
         <section>
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center gap-4">
-              <h3 className="text-2xl font-semibold">Gallery</h3>
-              <div className="flex items-center gap-2">
-                <Button variant="ghost" size="sm">
-                  <ChevronLeft className="w-4 h-4" />
-                </Button>
-                <Button variant="ghost" size="sm">
-                  <ChevronRight className="w-4 h-4" />
-                </Button>
-              </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <Button variant="ghost" size="sm">
-                Large
-              </Button>
-              <Button variant="ghost" size="sm">
-                Pricing
-              </Button>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-between py-4 border-t border-border">
-            <div className="flex items-center gap-3">
-              <div className="w-6 h-6 bg-primary rounded flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xs">
-                  K
-                </span>
-              </div>
-              <span className="font-semibold">Krea AI</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <span>curated by</span>
-              <span className="font-semibold text-foreground">Mobbin</span>
-            </div>
-          </div>
+          <Gallery />
         </section>
       </main>
     </div>
