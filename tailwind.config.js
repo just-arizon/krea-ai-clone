@@ -6,6 +6,7 @@ const config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
+
   ],
   theme: {
     extend: {
@@ -19,6 +20,7 @@ const config = {
   plugins: [
     heroui(),                      // ✅ HeroUI plugin
     require("tailwindcss-animate"), // ✅ animations plugin
+
   ],
 }
 
