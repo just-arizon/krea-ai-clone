@@ -14,7 +14,7 @@ export default function AIGallery() {
   const [filter, setFilter] = useState("all")
   const toggleDropdown = () => setIsOpen(!isOpen)
 
-  const handleFilter = (value) => {
+  const handleFilter = (value: string) => {
     setFilter(value)
     setIsOpen(false)
   }
