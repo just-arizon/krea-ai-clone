@@ -50,6 +50,7 @@
     "@heroui/tooltip": "2.2.23",
     "@heroui/user": "2.2.21",
     "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-tooltip": "^1.2.8",
     "@react-aria/ssr": "3.9.10",
     "@react-aria/visually-hidden": "3.8.27",
     "class-variance-authority": "^0.7.1",
