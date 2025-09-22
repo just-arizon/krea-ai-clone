@@ -11,13 +11,18 @@ import { useEffect, useState } from "react"
 import { Accordion, AccordionItem } from "@heroui/accordion"
 import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
+import type { Selection } from "@react-types/shared"
 
 export function Navbar() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["1"]))
+  const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set(["1"]))
   const pathname = usePathname()
+
+  const handleSelectionChange = (keys: Selection) => {
+    setSelectedKeys(keys);
+  };
 
   useEffect(() => {
     setMounted(true)
@@ -107,7 +112,7 @@ export function Navbar() {
                 </nav>
 
                 {/* Accordion with Mapped Items */}
-                <Accordion selectedKeys={selectedKeys} onSelectionChange={setSelectedKeys} className="px-0 mt-6">
+                <Accordion  selectedKeys={selectedKeys} onSelectionChange={handleSelectionChange} className="px-0 mt-6">
                   <AccordionItem key="1" aria-label="Apps" title="Apps">
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-1">
                       {/* Card 1 - Images */}
