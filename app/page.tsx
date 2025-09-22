@@ -14,10 +14,10 @@ export default function AIGallery() {
   const [filter, setFilter] = useState("all")
   const toggleDropdown = () => setIsOpen(!isOpen)
 
-  // const handleFilter = (value) => {
-  //   setFilter(value)
-  //   setIsOpen(false)
-  // }
+  const handleFilter = (value) => {
+    setFilter(value)
+    setIsOpen(false)
+  }
 
   return (
     <div className="min-h-screen container mx-auto max-w-7xl pt-16 px-4 flex-grow">
