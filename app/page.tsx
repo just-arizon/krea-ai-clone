@@ -6,8 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Brain } from "lucide-react";
 import { Gallery } from "@/components/gallery";
-import Img1 from "@/public/open-source.png";
-
+import CarouselComponent from "@/components/carousel"; 
 export default function AIGallery() {
 
   const [isOpen, setIsOpen] = useState(false);
@@ -24,93 +23,14 @@ export default function AIGallery() {
       <main className="px-2 lg:py-16 py-8">
         {/* Hero Section */}
         <section className="mb-12 overflow-hidden">
-          <div className="grid md:grid-cols-2 gap-20">
-            {/* WAN 2.2 Card */}
-            <Card className="relative w-150 overflow-hidden bg-gradient-to-br from-amber-50 to-orange-100 dark:from-amber-950/20 dark:to-orange-950/20 border-0">
-              <CardContent className="p-0">
-                <div className="relative h-80">
-                  <img
-                    src="https://s.krea.ai/announce-wan-2-2-image.webp"
-                    alt="WAN 2.2 Model Preview"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute top-4 left-4">
-                    <Badge
-                      variant="secondary"
-                      className="bg-white/20 text-white border-white/30"
-                    >
-                      AI MODEL
-                    </Badge>
-                  </div>
-                  <div className="flex justify-between gap-5 absolute bottom-5 left-3 right-3">
-                    <div className="w-2/3">
-                      <p className="text-white/90 mb-1 font-semibold text-sm">
-                        WAN 2.2 Image generation
-                      </p>
-                      <p className="text-white/70 text-xs">
-                        Generate countless images with the latest real and
-                        powerful WAN 2.2 model. Exceptional prompt adherence and
-                        ultra-realistic textures.
-                      </p>
-                    </div>
-                    <div className="flex items-end">
-                      <Button className="bg-white text-black hover:bg-white/90 rounded-full text-xs">
-                        Try WAN 2.2
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="relative w-150 overflow-hidden bg-gradient-to-br from-amber-50 to-orange-100 dark:from-amber-950/20 dark:to-orange-950/20 border-0">
-              <CardContent className="p-0">
-                <div className="relative h-80">
-                  <img
-                    src={Img1.src}
-                    alt="Oen Source Model Preview"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute top-4 left-4">
-                    <Badge
-                      variant="secondary"
-                      className="bg-white/20 text-white border-white/30"
-                    >
-                      AI MODEL
-                    </Badge>
-                  </div>
-                  <div className="flex justify-between gap-5 absolute bottom-5 left-3 right-3">
-                    <div className="w-2/3">
-                      <p className="text-white/90 mb-1 font-semibold text-sm">
-                        FLUX.1 Krea
-                      </p>
-                      <p className="text-white/70 text-xs">
-                        We're making the weights to our FLUX.1 Krea model
-                        open-source.Download and run our model el weights,read
-                        the technical report, or generate with it in Krea Image.
-                      </p>
-                    </div>
-                    <div className="flex items-end">
-                      <Button className="bg-white text-black hover:bg-white/90 rounded-full text-xs">
-                        Try WAN 2.2
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Navigation dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            <div className="w-2 h-2 bg-primary rounded-full" />
-            <div className="w-2 h-2 bg-muted rounded-full" />
+          <div className="">
+            {/* Use CarouselComponent here */}
+            <CarouselComponent />
           </div>
         </section>
 
         {/* Generate Section */}
-        <section className="mb-12">
+        <section className="my-20">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-2xl font-semibold">Generate</h3>
         <div className="">                
