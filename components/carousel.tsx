@@ -157,7 +157,7 @@ export default function CarouselPeek() {
                   key={i}
                   onClick={() => scrollToIndex(i)}
                   aria-label={`Go to slide ${i + 1}`}
-                  className={`h-2 w-2 rounded-full ${i === index ? "bg-primary" : "bg-muted"}`}
+                  className={`h-2 w-2 rounded-full ${i === index ? "bg-muted-foreground" : "bg-muted"}`}
                 />
               ))}
             </div>

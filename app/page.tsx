@@ -156,7 +156,7 @@ export default function AIGallery() {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="rounded-full text-primary py-2 px-3 bg-gray-100 dark:bg-[#262626]"
+                        className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
                       >
                         Open
                       </Button>
@@ -216,7 +216,7 @@ export default function AIGallery() {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="rounded-full text-primary py-2 px-3 bg-gray-100 dark:bg-[#262626]"
+                        className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
                       >
                         Open
                       </Button>
@@ -274,7 +274,7 @@ export default function AIGallery() {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="rounded-full text-primary py-2 px-3 bg-gray-100 dark:bg-[#262626]"
+                        className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
                       >
                         Open
                       </Button>
@@ -363,7 +363,7 @@ export default function AIGallery() {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="rounded-full text-primary py-2 px-3 bg-gray-100 dark:bg-[#262626]"
+                        className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
                       >
                         Open
                       </Button>
@@ -439,7 +439,7 @@ export default function AIGallery() {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="rounded-full text-primary py-2 px-3 bg-gray-100 dark:bg-[#262626]"
+                        className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
                       >
                         Open
                       </Button>
@@ -502,7 +502,7 @@ export default function AIGallery() {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="rounded-full text-primary py-2 px-3 bg-gray-100 dark:bg-[#262626]"
+                        className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
                       >
                         Open
                       </Button>
@@ -554,7 +554,7 @@ export default function AIGallery() {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="rounded-full text-primary py-2 px-3 bg-gray-100 dark:bg-[#262626]"
+                        className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
                       >
                         Open
                       </Button>
@@ -588,7 +588,7 @@ export default function AIGallery() {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="rounded-full text-primary py-2 px-3 bg-gray-100 dark:bg-[#262626]"
+                        className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
                       >
                         Open
                       </Button>
