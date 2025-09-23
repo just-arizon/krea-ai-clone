@@ -20,7 +20,7 @@ export default function AIGallery() {
 
   return (
     <div className="min-h-screen container mx-auto max-w-7xl pt-16 px-4 flex-grow">
-      <main className="px-2 lg:py-16 py-8">
+      <main className="lg:px-2 lg:py-16 py-8">
         {/* Hero Section */}
         <section className="mb-12 overflow-hidden">
           <div className="">

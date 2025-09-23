@@ -18,7 +18,7 @@ const slides: Slide[] = [
   {
     img: "https://s.krea.ai/announce-wan-2-2-image.webp",
     title: "WAN 2.2 Image generation",
-    desc: "Generate countless images with the latest real and powerful WAN 2.2 model. Exceptional prompt adherence and ultra-realistic textures.",
+    desc: "Generate complex images with the brand new and powerful WAN 2.2 model. Exceptional prompt adherence and ultra-realistic textures.",
     cta: "Try WAN 2.2",
   },
   {
@@ -127,7 +127,7 @@ export default function CarouselPeek() {
                     </div>
                     <div className="absolute bottom-5 left-3 right-3 flex justify-between gap-5">
                       <div className="w-2/3">
-                        <p className="text-white/90 mb-1 font-semibold text-sm">
+                        <p className="text-white/90 mb-1 font-bold text-sm">
                           {s.title}
                         </p>
                         <p className="text-white/70 text-xs">{s.desc}</p>

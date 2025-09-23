@@ -1,32 +1,39 @@
-"use client"
+"use client";
 
-import React from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from "@/components/ui/tooltip"
-import { Bell, Home, Brain, X, Sun, Moon, Headset, Images } from "lucide-react"
-import { useTheme } from "next-themes"
-import { useEffect, useState } from "react"
-import { Accordion, AccordionItem } from "@heroui/accordion"
-import { Card, CardContent } from "@/components/ui/card"
-import { cn } from "@/lib/utils"
-import type { Selection } from "@react-types/shared"
+import React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+  TooltipProvider,
+} from "@/components/ui/tooltip";
+import { Bell, Home, Brain, X, Sun, Moon, Headset, Images } from "lucide-react";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { Accordion, AccordionItem } from "@heroui/accordion";
+import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import type { Selection } from "@react-types/shared";
 
 export function Navbar() {
-  const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set(["1"]))
-  const pathname = usePathname()
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedKeys, setSelectedKeys] = React.useState<Selection>(
+    new Set(["1"])
+  );
+  const pathname = usePathname();
 
   const handleSelectionChange = (keys: Selection) => {
     setSelectedKeys(keys);
   };
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   const navItems = [
     { href: "/", icon: Home, label: "Home" },
@@ -36,7 +43,7 @@ export function Navbar() {
     { href: "/realtime", icon: "realtime", label: "Realtime" },
     { href: "/edit", icon: "edit", label: "Edit" },
     { href: "/assets", icon: "assets", label: "Assets" },
-  ]
+  ];
 
   return (
     <TooltipProvider>
@@ -44,7 +51,10 @@ export function Navbar() {
         <div className="px-4 h-16 flex items-center justify-between">
           <div className="flex-1 flex items-center gap-6">
             <div className="flex items-center gap-2">
-              <Link href="/" className="w-8 h-8 bg- rounded-lg flex items-center justify-center">
+              <Link
+                href="/"
+                className="w-8 h-8 bg- rounded-lg flex items-center justify-center"
+              >
                 <svg
                   aria-label="Krea Logo"
                   width="22"
@@ -85,7 +95,7 @@ export function Navbar() {
           {/* Mobile Navigation */}
           {/* Mobile Navigation Overlay */}
           {isMenuOpen && (
-            <div className="fixed inset-0 z-50 flex md:hidden">
+            <div className="fixed inset-0 z-100 flex md:hidden">
               {/* Background Blur */}
               <div
                 className="absolute inset-0 transition-[backdrop-filter] duration-200 ease-out starting:backdrop-blur-none
@@ -100,7 +110,10 @@ export function Navbar() {
                 }`}
               >
                 <div className="">
-                  <button className="absolute top-4 right-4 cursor-pointer" onClick={() => setIsMenuOpen(false)}>
+                  <button
+                    className="absolute top-4 right-4 cursor-pointer"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
                     <X className="h-6 w-6" />
                   </button>
                 </div>
@@ -112,7 +125,11 @@ export function Navbar() {
                 </nav>
 
                 {/* Accordion with Mapped Items */}
-                <Accordion  selectedKeys={selectedKeys} onSelectionChange={handleSelectionChange} className="px-0 mt-6">
+                <Accordion
+                  selectedKeys={selectedKeys}
+                  onSelectionChange={handleSelectionChange}
+                  className="px-0 mt-6"
+                >
                   <AccordionItem key="1" aria-label="Apps" title="Apps">
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-1">
                       {/* Card 1 - Images */}
@@ -122,7 +139,8 @@ export function Navbar() {
                             <div
                               className="relative aspect-square rounded-[10px] inset-ring-[0.5px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),inset_0_1px_5px_rgba(255,255,255,0.1)] inset-ring-black/10 block shrink-0"
                               style={{
-                                background: "linear-gradient(0deg, #D0E3F1 0%, #294962 100%)",
+                                background:
+                                  "linear-gradient(0deg, #D0E3F1 0%, #294962 100%)",
                                 width: "42px",
                                 height: "42px",
                               }}
@@ -162,7 +180,9 @@ export function Navbar() {
                             </div>
                             <div className="grid gap-1 w-full">
                               <span className="flex gap-1 items-center justify-between">
-                                <h4 className="font-medium text-[14px]">Images</h4>
+                                <h4 className="font-medium text-[14px]">
+                                  Images
+                                </h4>
                                 <Link
                                   href="/images"
                                   className="bg-[#f1f1f1] dark:bg-[#262626] ml-auto flex h-9 w-22 items-center justify-center rounded-full align-middle text-xs font-medium text-black dark:text-[#f1f1f1] hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors"
@@ -206,12 +226,21 @@ export function Navbar() {
                                   d="M12.6444 5.11182H5.68203C3.08003 5.11182 1.33203 6.93982 1.33203 9.66182V15.0618C1.33203 17.7838 3.08003 19.6118 5.68203 19.6118H12.6434C15.2474 19.6118 16.9964 17.7838 16.9964 15.0618V9.66182C16.9964 6.93982 15.2474 5.11182 12.6444 5.11182Z"
                                   fill="currentColor"
                                 ></path>
-                                <rect x="1" y="5.11182" width="16" height="15" rx="4" fill="currentColor"></rect>
+                                <rect
+                                  x="1"
+                                  y="5.11182"
+                                  width="16"
+                                  height="15"
+                                  rx="4"
+                                  fill="currentColor"
+                                ></rect>
                               </svg>
                             </div>
                             <div className="grid gap-1 w-full">
                               <span className="flex gap-1 items-center justify-between">
-                                <h4 className="font-medium text-[14px]">Videos</h4>
+                                <h4 className="font-medium text-[14px]">
+                                  Videos
+                                </h4>
                                 <Link
                                   href="/videos"
                                   className="bg-[#f1f1f1] dark:bg-[#262626] ml-auto flex h-9 w-22 items-center justify-center rounded-full align-middle text-xs font-medium text-black dark:text-[#f1f1f1] hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors"
@@ -264,7 +293,9 @@ export function Navbar() {
                             </div>
                             <div className="grid gap-1 w-full">
                               <span className="flex gap-1 items-center justify-between">
-                                <h4 className="font-medium text-[14px]">RealTime</h4>
+                                <h4 className="font-medium text-[14px]">
+                                  RealTime
+                                </h4>
                                 <Link
                                   href="/realtime"
                                   className="bg-[#f1f1f1] dark:bg-[#262626] ml-auto flex h-9 w-22 items-center justify-center rounded-full align-middle text-xs font-medium text-black dark:text-[#f1f1f1] hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors"
@@ -284,7 +315,8 @@ export function Navbar() {
                             <div
                               className="relative aspect-square rounded-[10px] inset-ring-[0.5px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),inset_0_1px_5px_rgba(255,255,255,0.1)] inset-ring-black/10 block shrink-0"
                               style={{
-                                background: "linear-gradient(0deg, #888888 0%, #000000 100%)",
+                                background:
+                                  "linear-gradient(0deg, #888888 0%, #000000 100%)",
                                 width: "42px",
                                 height: "42px",
                               }}
@@ -343,7 +375,9 @@ export function Navbar() {
                             </div>
                             <div className="grid gap-1 w-full">
                               <span className="flex gap-1 items-center justify-between">
-                                <h4 className="font-medium text-[14px]">Enhancer</h4>
+                                <h4 className="font-medium text-[14px]">
+                                  Enhancer
+                                </h4>
                                 <Link
                                   href="/enhancer"
                                   className="bg-[#f1f1f1] dark:bg-[#262626] ml-auto flex h-9 w-22 items-center justify-center rounded-full align-middle text-xs font-medium text-black dark:text-[#f1f1f1] hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors"
@@ -363,7 +397,8 @@ export function Navbar() {
                             <div
                               className="relative aspect-square rounded-[10px] inset-ring-[0.5px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),inset_0_1px_5px_rgba(255,255,255,0.1)] inset-ring-black/10 block shrink-0"
                               style={{
-                                background: "linear-gradient(0deg, #AE91CA 0%, #592A85 60%, #180728 100%)",
+                                background:
+                                  "linear-gradient(0deg, #AE91CA 0%, #592A85 60%, #180728 100%)",
                                 width: "42px",
                                 height: "42px",
                               }}
@@ -409,7 +444,9 @@ export function Navbar() {
                             </div>
                             <div className="grid gap-1 w-full">
                               <span className="flex gap-1 items-center justify-between">
-                                <h4 className="font-medium text-[14px]">Edit</h4>
+                                <h4 className="font-medium text-[14px]">
+                                  Edit
+                                </h4>
                                 <Link
                                   href="/edit"
                                   className="bg-[#f1f1f1] dark:bg-[#262626] ml-auto flex h-9 w-22 items-center justify-center rounded-full align-middle text-xs font-medium text-black dark:text-[#f1f1f1] hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors"
@@ -429,7 +466,8 @@ export function Navbar() {
                             <div
                               className="relative aspect-square rounded-[10px] inset-ring-[0.5px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),inset_0_1px_5px_rgba(255,255,255,0.1)] inset-ring-black/10 block shrink-0"
                               style={{
-                                background: "linear-gradient(0deg, #BBCA91 0%, #3C878F 60%, #07280F 100%)",
+                                background:
+                                  "linear-gradient(0deg, #BBCA91 0%, #3C878F 60%, #07280F 100%)",
                                 width: "42px",
                                 height: "42px",
                               }}
@@ -453,12 +491,19 @@ export function Navbar() {
                                   d="M10.165 8.40356C10.7043 10.6535 12.5111 12.4106 14.7882 12.8777L6.83049 18.7674C6.60581 18.9339 6.32644 19.0157 6.04426 18.9976C5.76209 18.9795 5.49628 18.8627 5.2962 18.6689L4.34224 17.7427C4.14504 17.5516 4.02487 17.2984 4.00345 17.0288C3.98204 16.7593 4.06079 16.4912 4.22547 16.2731L10.165 8.40356Z"
                                   fill="currentColor"
                                 ></path>
-                                <circle cx="16.5" cy="6.5" r="5.5" fill="currentColor"></circle>
+                                <circle
+                                  cx="16.5"
+                                  cy="6.5"
+                                  r="5.5"
+                                  fill="currentColor"
+                                ></circle>
                               </svg>
                             </div>
                             <div className="grid gap-1 w-full">
                               <span className="flex gap-1 items-center justify-between">
-                                <h4 className="font-medium text-[14px]">Video Lipsync</h4>
+                                <h4 className="font-medium text-[14px]">
+                                  Video Lipsync
+                                </h4>
                                 <Link
                                   href="/video-lipsync"
                                   className="bg-[#f1f1f1] dark:bg-[#262626] ml-auto flex h-9 w-22 items-center justify-center rounded-full align-middle text-xs font-medium text-black dark:text-[#f1f1f1] hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors"
@@ -502,7 +547,9 @@ export function Navbar() {
                             </div>
                             <div className="grid gap-1 w-full">
                               <span className="flex gap-1 items-center justify-between">
-                                <h4 className="font-medium text-[14px]">Motion Transfer</h4>
+                                <h4 className="font-medium text-[14px]">
+                                  Motion Transfer
+                                </h4>
                                 <Link
                                   href="/motion-transfer"
                                   className="bg-[#f1f1f1] dark:bg-[#262626] ml-auto flex h-9 w-22 items-center justify-center rounded-full align-middle text-xs font-medium text-black dark:text-[#f1f1f1] hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors"
@@ -530,7 +577,9 @@ export function Navbar() {
                             </div>
                             <div className="grid gap-1 w-full">
                               <span className="flex gap-1 items-center justify-between">
-                                <h4 className="font-medium text-[14px]">Train</h4>
+                                <h4 className="font-medium text-[14px]">
+                                  Train
+                                </h4>
                                 <Link
                                   href="/train"
                                   className="bg-[#f1f1f1] dark:bg-[#262626] ml-auto flex h-9 w-22 items-center justify-center rounded-full align-middle text-xs font-medium text-black dark:text-[#f1f1f1] hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors"
@@ -559,7 +608,7 @@ export function Navbar() {
             >
               <ul className="flex list-none p-0 m-0">
                 {navItems.map((item) => {
-                  const isActive = pathname === item.href
+                  const isActive = pathname === item.href;
                   return (
                     <li key={item.href}>
                       <Tooltip>
@@ -567,9 +616,10 @@ export function Navbar() {
                           <Link
                             href={item.href}
                             className={cn(
-                              "group relative my-1.5 block h-10 w-13 leading-none transition-all duration-300 ease-out mr-1.5", 
-                      "hover:bg-white dark:hover:bg-white/10 rounded-lg",
-                              isActive && "bg-white dark:bg-white/20 shadow-md px-3 py-2",
+                              "group relative my-1.5 block h-10 w-13 leading-none transition-all duration-300 ease-out mr-1.5",
+                              "hover:bg-white dark:hover:bg-white/10 rounded-lg",
+                              isActive &&
+                                "bg-white dark:bg-white/20 shadow-md px-3 py-2"
                             )}
                           >
                             {/* Custom SVG icons for each nav item */}
@@ -579,7 +629,9 @@ export function Navbar() {
                                 height="18"
                                 className={cn(
                                   "absolute inset-0 z-20 m-auto transition-colors duration-200",
-                                  isActive ? "text-black dark:text-[#f1f1f1]" : "text-black dark:text-[#f1f1f1]",
+                                  isActive
+                                    ? "text-black dark:text-[#f1f1f1]"
+                                    : "text-black dark:text-[#f1f1f1]"
                                 )}
                                 viewBox="0 0 24 24"
                                 fill="none"
@@ -600,7 +652,9 @@ export function Navbar() {
                                 xmlns="http://www.w3.org/2000/svg"
                                 className={cn(
                                   "absolute inset-0 z-20 m-auto transition-colors duration-200",
-                                  isActive ? "text-blue-600 dark:text-blue-400" : "text-black dark:text-[#f1f1f1]",
+                                  isActive
+                                    ? "text-blue-600 dark:text-blue-400"
+                                    : "text-black dark:text-[#f1f1f1]"
                                 )}
                               >
                                 <path
@@ -634,7 +688,9 @@ export function Navbar() {
                                 height="18"
                                 className={cn(
                                   "absolute inset-0 z-20 m-auto transition-colors duration-200",
-                                  isActive ? "text-blue-600 dark:text-blue-400" : "text-black dark:text-[#f1f1f1]",
+                                  isActive
+                                    ? "text-blue-600 dark:text-blue-400"
+                                    : "text-black dark:text-[#f1f1f1]"
                                 )}
                                 viewBox="0 0 24 24"
                                 fill="none"
@@ -660,13 +716,15 @@ export function Navbar() {
                                 height="18"
                                 className={cn(
                                   "absolute inset-0 z-20 m-auto transition-colors duration-200",
-                                  isActive ? "text-blue-600 dark:text-blue-400" : "text-black dark:text-[#f1f1f1]",
+                                  isActive
+                                    ? "text-blue-600 dark:text-blue-400"
+                                    : "text-black dark:text-[#f1f1f1]"
                                 )}
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
-<path
+                                <path
                                   d="M4.49935 13.0083C4.34395 13.5194 3.94455 13.9195 3.43425 14.075C3.94455 14.2306 4.34395 14.6306 4.49935 15.1417C4.65465 14.6306 5.05405 14.2306 5.56445 14.075C5.05405 13.9195 4.65465 13.5194 4.49935 13.0083Z"
                                   stroke="currentColor"
                                   strokeWidth="1.5"
@@ -708,10 +766,6 @@ export function Navbar() {
                                   d="M8.4043 11.3093L11.2555 8.50389L20.2713 17.6668C21.046 18.4542 21.0357 19.7204 20.2484 20.4951C19.461 21.2698 18.1947 21.2596 17.42 20.4722L8.4043 11.3093Z"
                                   fill="currentColor"
                                 ></path>
-
-
-                                
-                               
                               </svg>
                             )}
                             {item.icon === "realtime" && (
@@ -720,23 +774,41 @@ export function Navbar() {
                                 height="18"
                                 className={cn(
                                   "absolute inset-0 z-20 m-auto transition-colors duration-200",
-                                  isActive ? "text-blue-600 dark:text-blue-400" : "text-black dark:text-[#f1f1f1]",
+                                  isActive
+                                    ? "text-blue-600 dark:text-blue-400"
+                                    : "text-black dark:text-[#f1f1f1]"
                                 )}
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
-                                 <path d="M14.9472 14.4612C14.6244 14.8306 14.4629 15.0153 14.2819 15.1777C14.121 15.3219 13.9487 15.4529 13.7667 15.5693C13.5618 15.7004 13.3384 15.8077 12.8914 16.0223C11.8174 16.538 11.2804 16.7959 10.9271 16.705C10.6205 16.626 10.3693 16.4065 10.25 16.1132C10.1126 15.7753 10.2963 15.2086 10.6635 14.0752C10.8164 13.6035 10.8928 13.3677 10.9952 13.1471C11.0863 12.9511 11.193 12.7629 11.3144 12.5842C11.4511 12.383 11.6125 12.1983 11.9354 11.8289L17.0023 6.03138C17.076 5.94704 17.1129 5.90487 17.1574 5.88701C17.1966 5.87129 17.2398 5.86839 17.2807 5.87871C17.3273 5.89045 17.3695 5.92731 17.4538 6.00102L19.9838 8.21213C20.0681 8.28584 20.1103 8.3227 20.1281 8.36727C20.1438 8.40647 20.1467 8.44964 20.1364 8.4906C20.1247 8.53715 20.0878 8.57932 20.0141 8.66366L14.9472 14.4612Z" fill="currentColor"></path><path d="M20.8883 7.65066C20.8146 7.73499 20.7778 7.77716 20.7332 7.79503C20.694 7.81075 20.6508 7.81365 20.6099 7.80333C20.5633 7.79159 20.5211 7.75473 20.4368 7.68102L17.9096 5.47231C17.8253 5.3986 17.7831 5.36175 17.7652 5.31718C17.7495 5.27798 17.7466 5.23481 17.7569 5.19385C17.7687 5.14729 17.8055 5.10512 17.8792 5.02079L18.3305 4.50446C18.6354 4.15563 18.7878 3.98121 18.9511 3.87147C19.3968 3.57199 19.9685 3.53354 20.4502 3.77066C20.6267 3.85755 20.8012 4.00999 21.15 4.31486C21.4988 4.61972 21.6732 4.77216 21.783 4.93546C22.0824 5.3811 22.1209 5.95283 21.8838 6.43456C21.7969 6.61108 21.6444 6.7855 21.3396 7.13432L20.8883 7.65066Z" fill="currentColor"></path><path d="M9.5 18C9.5 18 7.2314 20.6818 6 20C4.7686 19.3182 8.43957 14.8136 8.43957 13.0357C8.43957 12.0802 5.54026 16.2053 3.75331 16.7185C0.87539 17.5452 7.17108 5 7.17108 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+                                <path
+                                  d="M14.9472 14.4612C14.6244 14.8306 14.4629 15.0153 14.2819 15.1777C14.121 15.3219 13.9487 15.4529 13.7667 15.5693C13.5618 15.7004 13.3384 15.8077 12.8914 16.0223C11.8174 16.538 11.2804 16.7959 10.9271 16.705C10.6205 16.626 10.3693 16.4065 10.25 16.1132C10.1126 15.7753 10.2963 15.2086 10.6635 14.0752C10.8164 13.6035 10.8928 13.3677 10.9952 13.1471C11.0863 12.9511 11.193 12.7629 11.3144 12.5842C11.4511 12.383 11.6125 12.1983 11.9354 11.8289L17.0023 6.03138C17.076 5.94704 17.1129 5.90487 17.1574 5.88701C17.1966 5.87129 17.2398 5.86839 17.2807 5.87871C17.3273 5.89045 17.3695 5.92731 17.4538 6.00102L19.9838 8.21213C20.0681 8.28584 20.1103 8.3227 20.1281 8.36727C20.1438 8.40647 20.1467 8.44964 20.1364 8.4906C20.1247 8.53715 20.0878 8.57932 20.0141 8.66366L14.9472 14.4612Z"
+                                  fill="currentColor"
+                                ></path>
+                                <path
+                                  d="M20.8883 7.65066C20.8146 7.73499 20.7778 7.77716 20.7332 7.79503C20.694 7.81075 20.6508 7.81365 20.6099 7.80333C20.5633 7.79159 20.5211 7.75473 20.4368 7.68102L17.9096 5.47231C17.8253 5.3986 17.7831 5.36175 17.7652 5.31718C17.7495 5.27798 17.7466 5.23481 17.7569 5.19385C17.7687 5.14729 17.8055 5.10512 17.8792 5.02079L18.3305 4.50446C18.6354 4.15563 18.7878 3.98121 18.9511 3.87147C19.3968 3.57199 19.9685 3.53354 20.4502 3.77066C20.6267 3.85755 20.8012 4.00999 21.15 4.31486C21.4988 4.61972 21.6732 4.77216 21.783 4.93546C22.0824 5.3811 22.1209 5.95283 21.8838 6.43456C21.7969 6.61108 21.6444 6.7855 21.3396 7.13432L20.8883 7.65066Z"
+                                  fill="currentColor"
+                                ></path>
+                                <path
+                                  d="M9.5 18C9.5 18 7.2314 20.6818 6 20C4.7686 19.3182 8.43957 14.8136 8.43957 13.0357C8.43957 12.0802 5.54026 16.2053 3.75331 16.7185C0.87539 17.5452 7.17108 5 7.17108 5"
+                                  stroke="currentColor"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                ></path>
                               </svg>
                             )}
-                            
+
                             {item.icon === "edit" && (
                               <svg
                                 width="18"
                                 height="18"
                                 className={cn(
                                   "absolute inset-0 z-20 m-auto transition-colors duration-200",
-                                  isActive ? "text-blue-600 dark:text-blue-400" : "text-black dark:text-[#f1f1f1]",
+                                  isActive
+                                    ? "text-blue-600 dark:text-blue-400"
+                                    : "text-black dark:text-[#f1f1f1]"
                                 )}
                                 viewBox="0 0 24 24"
                                 fill="none"
@@ -782,11 +854,19 @@ export function Navbar() {
                                 xmlns="http://www.w3.org/2000/svg"
                                 className={cn(
                                   "absolute inset-0 z-20 m-auto transition-colors duration-200",
-                                  isActive ? "text-blue-600 dark:text-blue-400" : "text-black dark:text-[#f1f1f1]",
+                                  isActive
+                                    ? "text-blue-600 dark:text-blue-400"
+                                    : "text-black dark:text-[#f1f1f1]"
                                 )}
                               >
                                 <path d="M3 5C3 4.45 3.45 4 4 4H9.17C9.58 4 9.95 4.21 10.14 4.55L10.86 5.89C11.05 6.23 11.42 6.44 11.83 6.44H20C20.55 6.44 21 6.89 21 7.44V11C21 11.55 20.55 12 20 12H4C3.45 12 3 11.55 3 11V5Z"></path>
-                                <rect x="3" y="7" width="18" height="12" rx="1"></rect>
+                                <rect
+                                  x="3"
+                                  y="7"
+                                  width="18"
+                                  height="12"
+                                  rx="1"
+                                ></rect>
                                 <path
                                   d="M3.15 18.5C3.08 18.15 3.08 17.65 3.08 17H20.92C20.92 17.65 20.92 18.15 20.85 18.5H3.15Z"
                                   opacity="0.3"
@@ -807,77 +887,84 @@ export function Navbar() {
                         </TooltipContent>
                       </Tooltip>
                     </li>
-                  )
+                  );
                 })}
               </ul>
             </nav>
           </div>
 
-          <div className="flex-1 flex justify-end gap-3">
-            <div className="flex items-center gap-3 hidden md:flex">
-              <Link
-                href="/gallery"
-                className="gap-2 bg-gray-50 dark:bg-neutral-900 dark:hover:bg-neutral-800 cursor-pointer border-none outline-none flex items-center px-3 py-2 rounded-md text-xs font-medium hover:bg-gray-200 transition-colors"
-              >
-                <Images className="w-3 h-3 text-[#262626] dark:text-[#f1f1f1]  cursor-pointer" />
-                <span>Gallery</span>
-              </Link>
-              <Link
-                href="/support"
-                className="gap-2 bg-gray-50  dark:bg-neutral-900 dark:hover:bg-neutral-800 cursor-pointer border-none outline-none flex items-center px-3 py-2 rounded-md text-xs font-medium hover:bg-gray-200 transition-colors"
-              >
-                <Headset className="w-3 h-3 text-[#262626] dark:text-[#f1f1f1] cursor-pointer" />
-                <span>Support</span>
-              </Link>
-              <div className="bg-gray-50  dark:bg-neutral-900 dark:hover:bg-neutral-800 cursor-pointer border-none outline-none flex items-center px-3 py-2 rounded-md text-xs font-medium hover:bg-gray-200 transition-colors">
-              <Bell className="w-3.5 h-3.5 text-[#262626] cursor-pointer dark:text-[#f1f1f1]" />
+          <div className="lg:flex-1 flex  gap-3 ">
+            <div className="flex justify-between gap-2">
+              <div className="flex items-center lg:gap-3 gap-1">
+                <Link
+                  href="/gallery"
+                  className="gap-2 bg-gray-50 dark:bg-neutral-900 dark:hover:bg-neutral-800 cursor-pointer border-none outline-none flex items-center px-3 py-2 rounded-md text-xs font-medium hover:bg-gray-200 transition-colors  hidden md:flex"
+                >
+                  <Images className="w-3 h-3 text-[#262626] dark:text-[#f1f1f1]  cursor-pointer" />
+                  <span>Gallery</span>
+                </Link>
+                <Link
+                  href="/support"
+                  className="gap-2 bg-gray-50  dark:bg-neutral-900 dark:hover:bg-neutral-800 cursor-pointer border-none outline-none flex items-center px-3 py-2 rounded-md text-xs font-medium hover:bg-gray-200 transition-colors  hidden md:flex"
+                >
+                  <Headset className="w-3 h-3 text-[#262626] dark:text-[#f1f1f1] cursor-pointer" />
+                  <span>Support</span>
+                </Link>
+                <div className="bg-gray-50  dark:bg-neutral-900 dark:hover:bg-neutral-800 cursor-pointer border-none outline-none flex items-center px-3 py-2 rounded-md text-xs font-medium hover:bg-gray-200 transition-colors">
+                  <Bell className="w-3.5 h-3.5 text-[#262626] cursor-pointer dark:text-[#f1f1f1]" />
+                </div>
+                {mounted && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() =>
+                      setTheme(theme === "dark" ? "light" : "dark")
+                    }
+                    className="hover:bg-[#f1f1f1] dark:bg-neutral-900 bg-gray-50 dark:hover:bg-neutral-800 flex h-[30px] w-[30px] items-center justify-center rounded-lg text-black/70 backdrop-blur-lg transition-colors duration-150 ease-[cubic-bezier(.33,0,.2,1)] hover:text-black dark:text-[#f1f1f1] dark:hover:text-[#f1f1f1] cursor-pointer"
+                  >
+                    {theme === "dark" ? (
+                      <Sun className="w-4 h-4" />
+                    ) : (
+                      <Moon className="w-4 h-4" />
+                    )}
+                    <span className="sr-only">Toggle theme</span>
+                  </Button>
+                )}
+                <div className="w-7 h-7 bg-primary rounded-full flex items-center justify-center hidden md:flex">
+                  <img src="/profile.svg" alt="profile" />
+                </div>
               </div>
 
-              {mounted && (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="hover:bg-[#f1f1f1] dark:bg-neutral-900 bg-gray-50 dark:hover:bg-neutral-800 flex h-[30px] w-[30px] items-center justify-center rounded-lg text-black/70 backdrop-blur-lg transition-colors duration-150 ease-[cubic-bezier(.33,0,.2,1)] hover:text-black dark:text-[#f1f1f1] dark:hover:text-[#f1f1f1] cursor-pointer"
-                >
-                  {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-                  <span className="sr-only">Toggle theme</span>
-                </Button>
-              )}
-
-              <div className="w-7 h-7 bg-primary rounded-full flex items-center justify-center">
-                <img src="/profile.svg" alt="profile" />
+              <div
+                className="flex items-center w-full h-full justify-end relative"
+              >
+                <span className="lg:hidden md:hidden bg-blue-700 dark:animate-pulse-shadow pointer-events-auto  flex h-[28px] items-center justify-center gap-1 rounded-lg px-2.5
+                   text-xs font-medium text-white transition-[filter,box-shadow] duration-500 ease-[cubic-bezier(.33,0,.2,1)] hover:brightness-110 
+                   dark:shadow-[0_0_15px_-2px_var(--color-action)] dark:hover:shadow-[0_0_25px_-2px_var(--color-action)]">
+                  <div className="">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      className="inline-block"
+                    >
+                      <g fill="none" fillRule="evenodd">
+                        <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q.005-.018.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"></path>
+                        <path
+                          fill="currentColor"
+                          d="M17 3a2 2 0 0 1 1.492.668l.108.132l3.704 4.939a2 2 0 0 1-.012 2.416l-.108.13l-9.259 10.184a1.25 1.25 0 0 1-1.753.096l-.097-.096l-9.259-10.185a2 2 0 0 1-.215-2.407l.095-.138L5.4 3.8a2 2 0 0 1 1.43-.793L7 3zm-2.477 8H9.477L12 17.307zm5.217 0h-3.063l-2.406 6.015zM7.323 11H4.261l5.468 6.015zm5.059-6h-.764l-2 4h4.764zM17 5h-2.382l2 4H20zM9.382 5H7L4 9h3.382z"
+                        ></path>
+                      </g>
+                    </svg>
+                    <span className="">upgrade</span>
+                  </div>
+                </span>
               </div>
-            </div>
-
-            <div
-              className="lg:hidden md:hidden bg-blue-700 dark:animate-pulse-shadow pointer-events-auto fixed top-4 right-4 z-51 flex h-[28px] items-center justify-center gap-1 rounded-lg px-2.5
-		 text-xs font-medium text-white transition-[filter,box-shadow] duration-500 ease-[cubic-bezier(.33,0,.2,1)] hover:brightness-110 sm:right-auto sm:left-18
-		 dark:shadow-[0_0_15px_-2px_var(--color-action)] dark:hover:shadow-[0_0_25px_-2px_var(--color-action)]
-		 sm:hidden  svelte-qzh0aw"
-            >
-              <span className="">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="15"
-                  height="15"
-                  viewBox="0 0 24 24"
-                  className="inline-block"
-                >
-                  <g fill="none" fillRule="evenodd">
-                    <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q.005-.018.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"></path>
-                    <path
-                      fill="currentColor"
-                      d="M17 3a2 2 0 0 1 1.492.668l.108.132l3.704 4.939a2 2 0 0 1-.012 2.416l-.108.13l-9.259 10.184a1.25 1.25 0 0 1-1.753.096l-.097-.096l-9.259-10.185a2 2 0 0 1-.215-2.407l.095-.138L5.4 3.8a2 2 0 0 1 1.43-.793L7 3zm-2.477 8H9.477L12 17.307zm5.217 0h-3.063l-2.406 6.015zM7.323 11H4.261l5.468 6.015zm5.059-6h-.764l-2 4h4.764zM17 5h-2.382l2 4H20zM9.382 5H7L4 9h3.382z"
-                    ></path>
-                  </g>
-                </svg>
-              </span>
-              <span className="">upgrade</span>
             </div>
           </div>
         </div>
       </header>
     </TooltipProvider>
-  )
+  );
 }
