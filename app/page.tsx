@@ -1,22 +1,23 @@
-"use client"
+"use client";
 
-import { useState } from 'react'
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Brain } from "lucide-react";
 import { Gallery } from "@/components/gallery";
-import CarouselComponent from "@/components/carousel"; 
-export default function AIGallery() {
+import CarouselComponent from "@/components/carousel";
+import { motion } from "framer-motion";
 
+export default function AIGallery() {
   const [isOpen, setIsOpen] = useState(false);
-  const [filter, setFilter] = useState("all")
-  const toggleDropdown = () => setIsOpen(!isOpen)
+  const [filter, setFilter] = useState("all");
+  const toggleDropdown = () => setIsOpen(!isOpen);
 
   const handleFilter = (value: string) => {
-    setFilter(value)
-    setIsOpen(false)
-  }
+    setFilter(value);
+    setIsOpen(false);
+  };
 
   return (
     <div className="min-h-screen container mx-auto max-w-7xl pt-16 px-4 flex-grow">
@@ -33,70 +34,74 @@ export default function AIGallery() {
         <section className="my-20">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-2xl font-semibold">Generate</h3>
-        <div className="">                
-          <button
-            onClick={toggleDropdown}
-            className="flex gap-1 text-blue-500 rounded-lg text-sm px-2 py-1 text-center inline-flex items-center font-semibold"
-            type="button"
-          >
-        <svg
-              className={`w-3 h-3 ml-1 transition-transform ${
-                isOpen ? "rotate-180" : ""
-              }`}
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="m1 1 4 4 4-4"
-              />
-            </svg>
-            <span>Show all{" "}</span>
+            <div className="">
+              <button
+                onClick={toggleDropdown}
+                className="flex gap-1 text-blue-500 rounded-lg text-sm px-2 py-1 text-center inline-flex items-center font-semibold"
+                type="button"
+              >
+                <svg
+                  className={`w-3 h-3 ml-1 transition-transform ${
+                    isOpen ? "rotate-180" : ""
+                  }`}
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+                <span>Show all </span>
+              </button>
 
-          </button>
-
-            {isOpen && (
-            <div className="absolute right-0 mt-1 w-44 rounded-lg shadow-sm bg-white dark:bg-gray-800 z-20">
-              <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
-                <li>
-                  <button
-                    onClick={() => handleFilter("all")}
-                    className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-                  >
-                    Show All
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => handleFilter("images")}
-                    className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-                  >
-                    Images
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => handleFilter("videos")}
-                    className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-                  >
-                    Videos
-                  </button>
-                </li>
-              </ul>
-            </div>
-          )}
+              {isOpen && (
+                <div className="absolute right-0 mt-1 w-44 rounded-lg shadow-sm bg-white dark:bg-gray-800 z-20">
+                  <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+                    <li>
+                      <button
+                        onClick={() => handleFilter("all")}
+                        className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      >
+                        Show All
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        onClick={() => handleFilter("images")}
+                        className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      >
+                        Images
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        onClick={() => handleFilter("videos")}
+                        className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      >
+                        Videos
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
 
-
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
             {/* Card 1 */}
-            <Card className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent">
+            <motion.div
+              className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
               <CardContent className="py-3 px-2">
                 <div className="flex items-center gap-2">
                   <div
@@ -164,10 +169,16 @@ export default function AIGallery() {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </motion.div>
 
             {/* Card 2 */}
-            <Card className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent">
+            <motion.div
+              className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
               <CardContent className="py-3 px-2">
                 <div className="flex items-center gap-2">
                   <div
@@ -224,10 +235,16 @@ export default function AIGallery() {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </motion.div>
 
             {/* Card 3 */}
-            <Card className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent">
+            <motion.div
+              className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
               <CardContent className="py-3 px-2">
                 <div className="flex items-center gap-2">
                   <div
@@ -282,10 +299,16 @@ export default function AIGallery() {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </motion.div>
 
             {/* Card 4 */}
-            <Card className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent">
+            <motion.div
+              className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2.0, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
               <CardContent className="py-3 px-2">
                 <div className="flex items-center gap-2">
                   <div
@@ -371,9 +394,15 @@ export default function AIGallery() {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </motion.div>
             {/* Card 5 */}
-            <Card className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent">
+            <motion.div
+              className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2.5, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
               <CardContent className="py-3 px-2">
                 <div className="flex items-center gap-2">
                   <div
@@ -447,9 +476,15 @@ export default function AIGallery() {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </motion.div>
             {/* Card 6 */}
-            <Card className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent">
+            <motion.div
+              className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 3.0, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
               <CardContent className="py-3 px-2">
                 <div className="flex items-center gap-2">
                   <div
@@ -510,9 +545,15 @@ export default function AIGallery() {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </motion.div>
             {/* Card 7 */}
-            <Card className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent">
+            <motion.div
+              className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 3.5, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
               <CardContent className="py-3 px-2">
                 <div className="flex items-center gap-2">
                   <div
@@ -562,9 +603,15 @@ export default function AIGallery() {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </motion.div>
             {/* Card 8 */}
-            <Card className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent">
+            <motion.div
+              className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 4.0, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
               <CardContent className="py-3 px-2">
                 <div className="flex items-center gap-2">
                   <div
@@ -596,7 +643,7 @@ export default function AIGallery() {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </motion.div>
           </div>
         </section>
         <section>
