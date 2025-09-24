@@ -5,7 +5,9 @@ import React, { useRef, useState, useEffect, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import Img1 from "@/public/open-source.png"; // Replace with your actual image path
+import Img1 from "@/public/open-source.png"; 
+import Image from "next/image"
+
 
 type Slide = {
   img: string;

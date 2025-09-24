@@ -10,7 +10,17 @@ import {
   TooltipTrigger,
   TooltipProvider,
 } from "@/components/ui/tooltip";
-import { Bell, Home, Brain, X, Sun, Moon, Headset, Images } from "lucide-react";
+import {
+  Bell,
+  Home,
+  Brain,
+  X,
+  Sun,
+  Moon,
+  Headset,
+  Images,
+  ChevronDownIcon,
+} from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Accordion, AccordionItem } from "@heroui/accordion";
@@ -59,7 +69,7 @@ export function Navbar() {
       <header className="bg-white w-full fixed z-50 dark:bg-black lg:bg-transparent dark:lg:bg-transparent">
         <div className="px-4 h-16 flex items-center justify-between">
           <div className="flex-1 flex items-center gap-6">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center lg:gap-10 md:gap-4">
               <Link
                 href="/"
                 className="w-8 h-8 bg- rounded-lg flex items-center justify-center"
@@ -98,6 +108,37 @@ export function Navbar() {
                   ></path>
                 </svg>
               </Link>
+
+              <div className="flex flex-1 justify-end cursor-pointer hidden md:flex">
+                <Dropdown placement="bottom-end">
+                  <DropdownTrigger>
+                    <div className="flex items-center gap-1.5">
+                      {/* User Avatar */}
+                      <div className="flex gap-1.5">
+                        <Avatar
+                          isBordered
+                          as="button"
+                          className="transition-transform  w-6 h-6  hover:scale-105 cursor-pointer"
+                          src="/profile.svg"
+                        />
+                        <span className="text-xs items-center flex">
+                          Arinze
+                        </span>
+                      </div>
+                      {/* Chevron Icon */}
+                      <ChevronDownIcon className="w-4 h-4 text-white font-bold" />
+                    </div>
+                  </DropdownTrigger>
+                  <DropdownMenu aria-label="User Actions" variant="flat">
+                    <DropdownItem key="profile" className="h-14 gap-2">
+                      <p className="font-medium text-xs">Workspaces</p>
+                    </DropdownItem>
+                    <DropdownItem key="settings">
+                      Create a new team
+                    </DropdownItem>
+                  </DropdownMenu>
+                </Dropdown>
+              </div>
             </div>
           </div>
 
@@ -121,18 +162,52 @@ export function Navbar() {
                 exit={{ x: "100%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 40 }}
               >
-                <div className="">
-                  <button
-                    className="absolute top-4 left-4 cursor-pointer"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <X className="h-6 w-6" />
-                  </button>
+                <div className="flex justify-between">
+                  <div className="flex flex-1">
+                    <button
+                      className="absolute top-4 left-4 cursor-pointer"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <X className="h-6 w-6" />
+                    </button>
+                  </div>
+
+                  <div className="relative top-1 flex flex-1 justify-end cursor-pointer">
+                    <Dropdown placement="bottom-end">
+                      <DropdownTrigger>
+                        <div className="flex items-center gap-1.5">
+                          {/* Chevron Icon */}
+                          <ChevronDownIcon className="w-4 h-4 text-white font-bold" />
+
+                          {/* User Avatar */}
+                          <div className="flex gap-1.5">
+                            <Avatar
+                              isBordered
+                              as="button"
+                              className="transition-transform  w-6 h-6  hover:scale-105 cursor-pointer"
+                              src="/profile.svg"
+                            />
+                            <span className="text-xs items-center flex">
+                              Arinze Calistus
+                            </span>
+                          </div>
+                        </div>
+                      </DropdownTrigger>
+                      <DropdownMenu aria-label="User Actions" variant="flat">
+                        <DropdownItem key="profile" className="h-14 gap-2">
+                          <p className="font-medium text-xs">Workspaces</p>
+                        </DropdownItem>
+                        <DropdownItem key="settings">
+                          Create a new team
+                        </DropdownItem>
+                      </DropdownMenu>
+                    </Dropdown>
+                  </div>
                 </div>
 
                 <nav className="mt-12 flex flex-col gap-6">
                   <Link href="/" className="flex items-center gap-2">
-                    <div className="bg-[var(--primary)] text-secondary dark:text-white dark:bg-secondary relative flex aspect-square h-11 items-center justify-center rounded-[10px] opacity-100">
+                    <div className="bg-[var(--primary)] text-secondary dark:text-secondary dark:bg-[#f1f1f6] relative flex aspect-square h-11 items-center justify-center rounded-[10px] opacity-100">
                       <svg
                         aria-label="Krea Logo"
                         width="24"

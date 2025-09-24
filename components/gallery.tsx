@@ -23,14 +23,6 @@ export function Gallery() {
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-4">
           <h3 className="text-2xl font-semibold">Gallery</h3>
-          <div className="flex items-center gap-2">
-            <Button variant="ghost" size="sm">
-              <ChevronLeft className="w-4 h-4" />
-            </Button>
-            <Button variant="ghost" size="sm">
-              <ChevronRight className="w-4 h-4" />
-            </Button>
-          </div>
         </div>
         <div className="flex items-center gap-2">
           <Button variant="ghost" size="sm">
