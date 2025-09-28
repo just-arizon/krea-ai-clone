@@ -9,7 +9,7 @@ import { Gallery } from "@/components/gallery";
 import CarouselComponent from "@/components/carousel";
 import { motion } from "framer-motion";
 
-export default function AIGallery() {
+export default function  AIGallery() {
   const [isOpen, setIsOpen] = useState(false);
   const [filter, setFilter] = useState("all");
   const toggleDropdown = () => setIsOpen(!isOpen);

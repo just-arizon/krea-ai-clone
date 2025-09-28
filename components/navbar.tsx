@@ -122,7 +122,7 @@ export function Navbar() {
                           src="/profile.svg"
                         />
                         <span className="text-xs items-center flex">
-                          Arinze
+                          Arinze Chinweuba
                         </span>
                       </div>
                       {/* Chevron Icon */}
@@ -758,7 +758,7 @@ export function Navbar() {
                                 className={cn(
                                   "absolute inset-0 z-20 m-auto transition-colors duration-200",
                                   isActive
-                                    ? "text-blue-600 dark:text-blue-400"
+                                    ? "text-black dark:text-[#f1f1f1]"
                                     : "text-black dark:text-[#f1f1f1]"
                                 )}
                               >
@@ -794,7 +794,7 @@ export function Navbar() {
                                 className={cn(
                                   "absolute inset-0 z-20 m-auto transition-colors duration-200",
                                   isActive
-                                    ? "text-blue-600 dark:text-blue-400"
+                                    ? "text-black dark:text-[#f1f1f1]"
                                     : "text-black dark:text-[#f1f1f1]"
                                 )}
                                 viewBox="0 0 24 24"
@@ -822,7 +822,7 @@ export function Navbar() {
                                 className={cn(
                                   "absolute inset-0 z-20 m-auto transition-colors duration-200",
                                   isActive
-                                    ? "text-blue-600 dark:text-blue-400"
+                                    ? "text-black dark:text-[#f1f1f1]"
                                     : "text-black dark:text-[#f1f1f1]"
                                 )}
                                 viewBox="0 0 24 24"
@@ -879,8 +879,8 @@ export function Navbar() {
                                 height="18"
                                 className={cn(
                                   "absolute inset-0 z-20 m-auto transition-colors duration-200",
-                                  isActive
-                                    ? "text-blue-600 dark:text-blue-400"
+                                 isActive
+                                    ? "text-black dark:text-[#f1f1f1]"
                                     : "text-black dark:text-[#f1f1f1]"
                                 )}
                                 viewBox="0 0 24 24"
@@ -912,7 +912,7 @@ export function Navbar() {
                                 className={cn(
                                   "absolute inset-0 z-20 m-auto transition-colors duration-200",
                                   isActive
-                                    ? "text-blue-600 dark:text-blue-400"
+                                    ? "text-black dark:text-[#f1f1f1]"
                                     : "text-black dark:text-[#f1f1f1]"
                                 )}
                                 viewBox="0 0 24 24"
@@ -960,7 +960,7 @@ export function Navbar() {
                                 className={cn(
                                   "absolute inset-0 z-20 m-auto transition-colors duration-200",
                                   isActive
-                                    ? "text-blue-600 dark:text-blue-400"
+                                    ? "text-black dark:text-[#f1f1f1]"
                                     : "text-black dark:text-[#f1f1f1]"
                                 )}
                               >
