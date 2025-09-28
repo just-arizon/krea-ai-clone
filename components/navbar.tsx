@@ -20,6 +20,7 @@ import {
   Headset,
   Images,
   ChevronDownIcon,
+  ChevronUpIcon,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -63,6 +64,11 @@ export function Navbar() {
     { href: "/edit", icon: "edit", label: "Edit" },
     { href: "/assets", icon: "assets", label: "Assets" },
   ];
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   return (
     <TooltipProvider>
@@ -112,7 +118,9 @@ export function Navbar() {
               <div className="flex flex-1 justify-end cursor-pointer hidden md:flex">
                 <Dropdown placement="bottom-end">
                   <DropdownTrigger>
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-1.5"
+                     onClick={toggleDropdown}
+                    >
                       {/* User Avatar */}
                       <div className="flex gap-1.5">
                         <Avatar
@@ -125,16 +133,30 @@ export function Navbar() {
                           Arinze Chinweuba
                         </span>
                       </div>
-                      {/* Chevron Icon */}
-                      <ChevronDownIcon className="w-4 h-4 text-black dark:text-white font-bold" />
+                      {/* Chevron Icons */}
+                      <span className="" 
+                     >
+                        {isDropdownOpen ? (
+                          <ChevronUpIcon className="w-4 h-4 font-bold text-[#262626] dark:text-[#f1f1f1]" />
+                        ) : (
+                          <ChevronDownIcon className="w-4 h-4 font-bold text-[#262626] dark:text-[#f1f1f1]" />
+                        )}
+                      </span>
                     </div>
                   </DropdownTrigger>
-                  <DropdownMenu aria-label="User Actions" variant="flat">
+                  <DropdownMenu
+                    aria-label="User Actions"
+                    variant="flat"
+                    className="w-64"
+                  >
                     <DropdownItem key="profile" className="h-14 gap-2">
                       <p className="font-medium text-xs">Workspaces</p>
+                      <span className="text-sm text-gray-500">
+                        Arinze Calistus
+                      </span>
                     </DropdownItem>
                     <DropdownItem key="settings">
-                      Create a new team
+                      <p className="font-medium text-xs">Create a new team</p>
                     </DropdownItem>
                   </DropdownMenu>
                 </Dropdown>
@@ -879,7 +901,7 @@ export function Navbar() {
                                 height="18"
                                 className={cn(
                                   "absolute inset-0 z-20 m-auto transition-colors duration-200",
-                                 isActive
+                                  isActive
                                     ? "text-black dark:text-[#f1f1f1]"
                                     : "text-black dark:text-[#f1f1f1]"
                                 )}
@@ -986,7 +1008,7 @@ export function Navbar() {
                         </TooltipTrigger>
                         <TooltipContent
                           side="bottom"
-                          className="bg-[#f1f1f1] text-foreground-900 dark:bg-[var(--secondary)]  dark:text-white shadow-md p-2 rounded-lg"
+                          className="bg-[var(--primary)] dark:bg-[var(--secondary)]  dark:text-white shadow-md p-2 rounded-lg"
                         >
                           <p>{item.label}</p>
                         </TooltipContent>

@@ -8,8 +8,15 @@ import { Brain } from "lucide-react";
 import { Gallery } from "@/components/gallery";
 import CarouselComponent from "@/components/carousel";
 import { motion } from "framer-motion";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+} from "@heroui/dropdown";
+import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 
-export default function  AIGallery() {
+export default function AIGallery() {
   const [isOpen, setIsOpen] = useState(false);
   const [filter, setFilter] = useState("all");
   const toggleDropdown = () => setIsOpen(!isOpen);
@@ -17,6 +24,10 @@ export default function  AIGallery() {
   const handleFilter = (value: string) => {
     setFilter(value);
     setIsOpen(false);
+  };
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const handleDropdownToggle = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
   return (
@@ -34,66 +45,45 @@ export default function  AIGallery() {
         <section className="my-20">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-2xl font-semibold">Generate</h3>
-            <div className="">
-              <button
-                onClick={toggleDropdown}
-                className="flex gap-1 text-blue-500 rounded-lg text-sm px-2 py-1 text-center inline-flex items-center font-semibold"
-                type="button"
-              >
-                <svg
-                  className={`w-3 h-3 ml-1 transition-transform ${
-                    isOpen ? "rotate-180" : ""
-                  }`}
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 10 6"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="m1 1 4 4 4-4"
-                  />
-                </svg>
-                <span>Show all </span>
-              </button>
+            <div className="relative top-1 flex flex-1 justify-end cursor-pointer ">
+              <Dropdown placement="bottom-end">
+                <DropdownTrigger>
+                  <div
+                    className="flex items-center gap-1 text-blue-600"
+                    onClick={handleDropdownToggle} // Toggle on click
+                  >
+                    {/* Conditional rendering of chevron icons */}
+                    {isDropdownOpen ? (
+                      <ChevronUpIcon className="w-4 h-4 font-bold" />
+                    ) : (
+                      <ChevronDownIcon className="w-4 h-4 font-bold" />
+                    )}
 
-              {isOpen && (
-                <div className="absolute right-0 mt-1 w-44 rounded-lg shadow-sm bg-white dark:bg-gray-800 z-20">
-                  <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
-                    <li>
-                      <button
-                        onClick={() => handleFilter("all")}
-                        className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-                      >
-                        Show All
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        onClick={() => handleFilter("images")}
-                        className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-                      >
-                        Images
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        onClick={() => handleFilter("videos")}
-                        className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-                      >
-                        Videos
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-              )}
+                    {/* User Avatar */}
+                    <div className="flex gap-1.5">
+                      <span className="text-xs items-center flex font-semibold">
+                        Show more
+                      </span>
+                    </div>
+                  </div>
+                </DropdownTrigger>
+                <DropdownMenu
+                  aria-label="User Actions"
+                  variant="flat"
+                  className="w-64"
+                >
+                  <DropdownItem key="profile">
+                    <p className="font-medium text-xs">Filter 1</p>
+                  </DropdownItem>
+                  <DropdownItem key="settings">
+                    <p className="font-medium text-xs">Filter 2</p>
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
             {/* Card 1 */}
             <motion.div
               className="group transition-shadow cursor-pointer border-0 shadow-none dark:bg-transparent"
