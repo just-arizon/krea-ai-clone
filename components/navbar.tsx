@@ -126,7 +126,7 @@ export function Navbar() {
                         </span>
                       </div>
                       {/* Chevron Icon */}
-                      <ChevronDownIcon className="w-4 h-4 text-white font-bold" />
+                      <ChevronDownIcon className="w-4 h-4 text-black dark:text-white font-bold" />
                     </div>
                   </DropdownTrigger>
                   <DropdownMenu aria-label="User Actions" variant="flat">
