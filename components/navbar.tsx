@@ -21,6 +21,7 @@ import {
   Images,
   ChevronDownIcon,
   ChevronUpIcon,
+  SquarePlus,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -30,6 +31,7 @@ import {
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
+  DropdownSection,
 } from "@heroui/dropdown";
 import { Avatar } from "@heroui/avatar";
 import { User } from "@heroui/user";
@@ -76,33 +78,35 @@ export function Navbar() {
         <div className="px-4 h-16 flex items-center justify-between">
           <div className="flex-1 flex items-center gap-6">
             <div className="flex items-center lg:gap-10 md:gap-4">
-              <Link
-                href="/"
-                className="w-8 h-8 bg- rounded-lg flex items-center justify-center"
-              >
-                <svg
-                  aria-label="Krea Logo"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="hidden md:block"
+              <div className="flex items-center">
+                <Link
+                  href="/"
+                  className="w-8 h-8 flex items-center justify-center hidden md:block pt-1.5"
                 >
-                  <path
-                    d="M8.34 1.266c1.766-.124 3.324 1.105 3.551 2.802.216 1.612-.887 3.171-2.545 3.536-.415.092-.877.066-1.317.122a4.63 4.63 0 0 0-2.748 1.34l-.008.004-.01-.001-.006-.005-.003-.009q0-.009.005-.016a.04.04 0 0 0 .007-.022 438 438 0 0 1-.01-4.541c.003-1.68 1.33-3.086 3.085-3.21"
-                    className="svelte-qzh0aw"
-                  ></path>
-                  <path
-                    d="M8.526 15.305c-2.247-.018-3.858-2.23-3.076-4.3a3.31 3.31 0 0 1 2.757-2.11c.384-.04.845-.03 1.215-.098 1.9-.353 3.368-1.806 3.665-3.657.066-.41.031-.9.128-1.335.449-2.016 2.759-3.147 4.699-2.236 1.011.476 1.69 1.374 1.857 2.447q.051.33.034.818c-.22 5.842-5.21 10.519-11.279 10.47m2.831.93a.04.04 0 0 1-.021-.02l-.001-.006.002-.006q0-.003.003-.004l.006-.003q3.458-.792 5.992-3.185.045-.042.083.007c.27.357.554.74.78 1.106a10.6 10.6 0 0 1 1.585 4.89q.037.53.023.819c-.084 1.705-1.51 3.08-3.31 3.09-1.592.01-2.992-1.077-3.294-2.597-.072-.36-.05-.858-.11-1.238q-.282-1.755-1.715-2.84zm-3.369 6.64c-1.353-.235-2.441-1.286-2.684-2.593a5 5 0 0 1-.05-.817V15.14q0-.021.016-.007c.884.786 1.814 1.266 3.028 1.346l.326.01c1.581.051 2.92 1.087 3.229 2.592.457 2.225-1.557 4.195-3.865 3.793"
-                    className="svelte-qzh0aw"
-                  ></path>
-                </svg>
+                  <svg
+                    aria-label="Krea Logo"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className=""
+                  >
+                    <path
+                      d="M8.34 1.266c1.766-.124 3.324 1.105 3.551 2.802.216 1.612-.887 3.171-2.545 3.536-.415.092-.877.066-1.317.122a4.63 4.63 0 0 0-2.748 1.34l-.008.004-.01-.001-.006-.005-.003-.009q0-.009.005-.016a.04.04 0 0 0 .007-.022 438 438 0 0 1-.01-4.541c.003-1.68 1.33-3.086 3.085-3.21"
+                      className="svelte-qzh0aw"
+                    ></path>
+                    <path
+                      d="M8.526 15.305c-2.247-.018-3.858-2.23-3.076-4.3a3.31 3.31 0 0 1 2.757-2.11c.384-.04.845-.03 1.215-.098 1.9-.353 3.368-1.806 3.665-3.657.066-.41.031-.9.128-1.335.449-2.016 2.759-3.147 4.699-2.236 1.011.476 1.69 1.374 1.857 2.447q.051.33.034.818c-.22 5.842-5.21 10.519-11.279 10.47m2.831.93a.04.04 0 0 1-.021-.02l-.001-.006.002-.006q0-.003.003-.004l.006-.003q3.458-.792 5.992-3.185.045-.042.083.007c.27.357.554.74.78 1.106a10.6 10.6 0 0 1 1.585 4.89q.037.53.023.819c-.084 1.705-1.51 3.08-3.31 3.09-1.592.01-2.992-1.077-3.294-2.597-.072-.36-.05-.858-.11-1.238q-.282-1.755-1.715-2.84zm-3.369 6.64c-1.353-.235-2.441-1.286-2.684-2.593a5 5 0 0 1-.05-.817V15.14q0-.021.016-.007c.884.786 1.814 1.266 3.028 1.346l.326.01c1.581.051 2.92 1.087 3.229 2.592.457 2.225-1.557 4.195-3.865 3.793"
+                      className="svelte-qzh0aw"
+                    ></path>
+                  </svg>
+                </Link>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
                   role="img"
-                  className="h-5 w-5 iconify iconify--mynaui md:hidden"
+                  className="h-5 w-5 iconify iconify--mynaui md:hidden text-[#A3A3A3] cursor-pointer"
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   width="1em"
                   height="1em"
@@ -113,13 +117,14 @@ export function Navbar() {
                     d="M9.367 2.25h5.266c1.092 0 1.958 0 2.655.057c.714.058 1.317.18 1.869.46a4.75 4.75 0 0 1 2.075 2.077c.281.55.403 1.154.461 1.868c.057.697.057 1.563.057 2.655v5.266c0 1.092 0 1.958-.057 2.655c-.058.714-.18 1.317-.46 1.869a4.75 4.75 0 0 1-2.076 2.075c-.552.281-1.155.403-1.869.461c-.697.057-1.563.057-2.655.057H9.367c-1.092 0-1.958 0-2.655-.057c-.714-.058-1.317-.18-1.868-.46a4.75 4.75 0 0 1-2.076-2.076c-.281-.552-.403-1.155-.461-1.869c-.057-.697-.057-1.563-.057-2.655V9.367c0-1.092 0-1.958.057-2.655c.058-.714.18-1.317.46-1.868a4.75 4.75 0 0 1 2.077-2.076c.55-.281 1.154-.403 1.868-.461c.697-.057 1.563-.057 2.655-.057M6.834 3.802c-.62.05-1.005.147-1.31.302a3.25 3.25 0 0 0-1.42 1.42c-.155.305-.251.69-.302 1.31c-.051.63-.052 1.434-.052 2.566v5.2c0 1.133 0 1.937.052 2.566c.05.62.147 1.005.302 1.31a3.25 3.25 0 0 0 1.42 1.42c.305.155.69.251 1.31.302c.392.032.851.044 1.416.05V3.752c-.565.005-1.024.017-1.416.049"
                   ></path>
                 </svg>
-              </Link>
+              </div>
 
               <div className="flex flex-1 justify-end cursor-pointer hidden md:flex">
                 <Dropdown placement="bottom-end">
                   <DropdownTrigger>
-                    <div className="flex items-center gap-1.5"
-                     onClick={toggleDropdown}
+                    <div
+                      className="flex items-center gap-1.5"
+                      onClick={toggleDropdown}
                     >
                       {/* User Avatar */}
                       <div className="flex gap-1.5">
@@ -129,13 +134,12 @@ export function Navbar() {
                           className="transition-transform  w-6 h-6  hover:scale-105 cursor-pointer"
                           src="/profile.svg"
                         />
-                        <span className="text-xs items-center flex">
+                        <span className="font-semibold text-xs items-center flex">
                           Arinze Chinweuba
                         </span>
                       </div>
                       {/* Chevron Icons */}
-                      <span className="" 
-                     >
+                      <span className="">
                         {isDropdownOpen ? (
                           <ChevronUpIcon className="w-4 h-4 font-bold text-[#262626] dark:text-[#f1f1f1]" />
                         ) : (
@@ -146,18 +150,33 @@ export function Navbar() {
                   </DropdownTrigger>
                   <DropdownMenu
                     aria-label="User Actions"
-                    variant="flat"
-                    className="w-64"
+                    variant="faded"
+                    className=""
                   >
-                    <DropdownItem key="profile" className="h-14 gap-2">
-                      <p className="font-medium text-xs">Workspaces</p>
-                      <span className="text-sm text-gray-500">
-                        Arinze Calistus
-                      </span>
-                    </DropdownItem>
-                    <DropdownItem key="settings">
-                      <p className="font-medium text-xs">Create a new team</p>
-                    </DropdownItem>
+                    <DropdownSection title="Workspace">
+                      <DropdownItem
+                        key="profile"
+                        startContent={
+                          <Avatar
+                            isBordered
+                            as="button"
+                            className="transition-transform  w-5 h-5  hover:scale-105 cursor-pointer"
+                            src="/profile.svg"
+                          />
+                        }
+                      >
+                        <span className="text-xs">Arinze Chinweuba</span>
+                      </DropdownItem>
+                      <DropdownItem
+                        key="settings"
+                        className=""
+                        startContent={
+                          <SquarePlus className="transition-transform  w-5 h-5  hover:scale-105 cursor-pointer" />
+                        }
+                      >
+                        <p className="text-xs">Create a new team</p>
+                      </DropdownItem>
+                    </DropdownSection>
                   </DropdownMenu>
                 </Dropdown>
               </div>
@@ -194,34 +213,66 @@ export function Navbar() {
                     </button>
                   </div>
 
-                  <div className="relative top-1 flex flex-1 justify-end cursor-pointer">
+                  {/* Mobile dropdown */}
+
+                  <div className="flex justify-end cursor-pointer opacity-50 hover:opacity-90 relative top-1">
                     <Dropdown placement="bottom-end">
                       <DropdownTrigger>
-                        <div className="flex items-center gap-1.5">
-                          {/* Chevron Icon */}
-                          <ChevronDownIcon className="w-4 h-4 text-white font-bold" />
-
+                        <div
+                          className="flex items-center gap-1.5"
+                          onClick={toggleDropdown}
+                        >
+                          {/* Chevron Icons */}
+                          <span className="">
+                            {isDropdownOpen ? (
+                              <ChevronUpIcon className="w-4 h-4 font-bold text-[#262626] dark:text-[#f1f1f1]" />
+                            ) : (
+                              <ChevronDownIcon className="w-4 h-4 font-bold text-[#262626] dark:text-[#f1f1f1]" />
+                            )}
+                          </span>
                           {/* User Avatar */}
                           <div className="flex gap-1.5">
                             <Avatar
                               isBordered
                               as="button"
-                              className="transition-transform  w-6 h-6  hover:scale-105 cursor-pointer"
+                              className="transition-transform  w-4 h-4  hover:scale-105 cursor-pointer"
                               src="/profile.svg"
                             />
                             <span className="text-xs items-center flex">
-                              Arinze Calistus
+                              Arinze Chinweuba
                             </span>
                           </div>
                         </div>
                       </DropdownTrigger>
-                      <DropdownMenu aria-label="User Actions" variant="flat">
-                        <DropdownItem key="profile" className="h-14 gap-2">
-                          <p className="font-medium text-xs">Workspaces</p>
-                        </DropdownItem>
-                        <DropdownItem key="settings">
-                          Create a new team
-                        </DropdownItem>
+                      <DropdownMenu
+                        aria-label="User Actions"
+                        variant="faded"
+                        className=""
+                      >
+                        <DropdownSection title="Workspace">
+                          <DropdownItem
+                            key="profile"
+                            startContent={
+                              <Avatar
+                                isBordered
+                                as="button"
+                                className="transition-transform  w-5 h-5  hover:scale-105 cursor-pointer"
+                                src="/profile.svg"
+                              />
+                            }
+                          >
+                            <span className="text-xs">Arinze Chinweuba</span>
+                          </DropdownItem>
+                          <DropdownItem
+                            key="settings"
+                            className=""
+                            startContent={
+                              <SquarePlus className="transition-transform  w-5 h-5  hover:scale-105 cursor-pointer" />
+                            }
+                          >
+                            <p className="text-xs">Create a new team</p>
+                          </DropdownItem>
+                        </DropdownSection>
                       </DropdownMenu>
                     </Dropdown>
                   </div>

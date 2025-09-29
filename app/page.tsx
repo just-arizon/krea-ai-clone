@@ -70,7 +70,7 @@ export default function AIGallery() {
                 </DropdownTrigger>
                 <DropdownMenu
                   aria-label="User Actions"
-                  variant="flat"
+                  variant="faded"
                   className="w-full"
                 >
                   <DropdownItem key="profile" className="w-full">
