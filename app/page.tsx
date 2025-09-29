@@ -15,6 +15,7 @@ import {
   DropdownItem,
 } from "@heroui/dropdown";
 import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function AIGallery() {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,9 +71,9 @@ export default function AIGallery() {
                 <DropdownMenu
                   aria-label="User Actions"
                   variant="flat"
-                  className="w-64"
+                  className="w-full"
                 >
-                  <DropdownItem key="profile">
+                  <DropdownItem key="profile" className="w-full">
                     <p className="font-medium text-xs">Filter 1</p>
                   </DropdownItem>
                   <DropdownItem key="settings">
@@ -148,13 +149,15 @@ export default function AIGallery() {
                         Generate images with custom styles in Text and
                         Instagram.
                       </p>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
-                      >
-                        Open
-                      </Button>
+                      <Link href={"/images"}>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
+                        >
+                          Open
+                        </Button>
+                      </Link>
                     </span>
                   </div>
                 </div>
@@ -214,15 +217,17 @@ export default function AIGallery() {
                       <p className="text-xs text-muted-foreground">
                         Generate videos with Haiper, Pika, Runway and others.
                       </p>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
-                      >
-                        Open
-                      </Button>
-                    </span>
-                  </div>
+                      <Link href={"/videos"}>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
+                        >
+                          Open
+                        </Button>
+                      </Link>
+                      </span>
+                      </div>
                 </div>
               </CardContent>
             </motion.div>
@@ -278,13 +283,15 @@ export default function AIGallery() {
                         Realtime AI rendering on a canvas.Instant feedback
                         loops.
                       </p>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
-                      >
-                        Open
-                      </Button>
+                      <Link href={"/realtime"}>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
+                        >
+                          Open
+                        </Button>
+                      </Link>
                     </span>
                   </div>
                 </div>
@@ -373,13 +380,15 @@ export default function AIGallery() {
                       <p className="text-xs text-muted-foreground">
                         Upscale and enhance images and videos up to 22k.
                       </p>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
-                      >
-                        Open
-                      </Button>
+                      <Link href={"/enhancer"}>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
+                        >
+                          Open
+                        </Button>
+                      </Link>
                     </span>
                   </div>
                 </div>
@@ -455,13 +464,15 @@ export default function AIGallery() {
                         Add objects, change style, or expand photos and
                         generations.
                       </p>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
-                      >
-                        Open
-                      </Button>
+                      <Link href={"/edit"}>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
+                        >
+                          Open
+                        </Button>
+                      </Link>
                     </span>
                   </div>
                 </div>
@@ -524,13 +535,15 @@ export default function AIGallery() {
                       <p className="text-xs text-muted-foreground">
                         Lip sync any video to any audio.
                       </p>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
-                      >
-                        Open
-                      </Button>
+                      <Link href={"/video-lipsync"}>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
+                        >
+                          Open
+                        </Button>
+                      </Link>
                     </span>
                   </div>
                 </div>
@@ -582,15 +595,15 @@ export default function AIGallery() {
                       <p className="text-xs text-muted-foreground">
                         Transfer motion to images and animate characters.
                       </p>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
-                      >
-                        Open
-                      </Button>
-                    </span>
-                  </div>
+                      <Link href={"/motion-transfer"}>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
+                        >
+                          Open
+                        </Button>
+                      </Link>
                 </div>
               </CardContent>
             </motion.div>
@@ -622,13 +635,15 @@ export default function AIGallery() {
                         ​​Train Krea to replicate your style, products, or
                         characters.
                       </p>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
-                      >
-                        Open
-                      </Button>
+                      <Link href={"/train"}>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="rounded-full text-secondary-foreground cursor-pointer py-2 px-3 bg-gray-100 dark:bg-[#262626]"
+                        >
+                          Open
+                        </Button>
+                      </Link>
                     </span>
                   </div>
                 </div>

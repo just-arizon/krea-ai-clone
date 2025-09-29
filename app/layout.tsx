@@ -32,14 +32,13 @@ export default function RootLayout({
       <body
         className={clsx(
           "text-foreground bg-background font-sans antialiased",
-          fontSans.variable,
+          fontSans.variable
         )}
       >
+        {/* Show the progress bar first */}
+        <ProgressBar />
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          {/* Show the progress bar first */}
-          <ProgressBar />
-          <Navbar />
-          
+        <Navbar />
           {/* Only show content once loading is false */}
           {!loading && (
             <div className="relative flex flex-col h-fit">

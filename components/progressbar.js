@@ -26,7 +26,7 @@ const ProgressBar = () => {
     <>
       {isAnimating && (
         <div
-          className="fixed top-0 left-0 w-full h-[3px] bg-[#262626] dark:bg-[#f1f1f1] transition-all duration-500 ease-out"
+          className="z-100 fixed top-0 left-0 w-full h-[3px] bg-[#262626] dark:bg-[#f1f1f1] transition-all duration-500 ease-out"
           style={{ width: `${progress}%` }}
         ></div>
       )}

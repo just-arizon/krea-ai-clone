@@ -167,7 +167,7 @@ export function Navbar() {
           {/* Mobile Navigation */}
           {/* Mobile Navigation Overlay */}
           {isMenuOpen && (
-            <div className="fixed inset-0 z-100 flex md:hidden">
+            <div className="fixed inset-0 z-50 flex md:hidden">
               {/* Background Blur */}
               <div
                 className="absolute inset-0 transition-[backdrop-filter] duration-200 ease-out starting:backdrop-blur-none
