@@ -226,8 +226,8 @@ export default function AIGallery() {
                           Open
                         </Button>
                       </Link>
-                      </span>
-                      </div>
+                    </span>
+                  </div>
                 </div>
               </CardContent>
             </motion.div>
@@ -604,6 +604,8 @@ export default function AIGallery() {
                           Open
                         </Button>
                       </Link>
+                    </span>
+                  </div>
                 </div>
               </CardContent>
             </motion.div>
