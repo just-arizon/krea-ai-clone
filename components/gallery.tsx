@@ -1,9 +1,10 @@
-'use client';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { useRef } from 'react';
-import useInfiniteImages from '@/hooks/useInfiniteImages';
-import useIntersectionObserver from '@/hooks/useIntersectionObserver';
+"use client";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { useRef } from "react";
+import useInfiniteImages from "@/hooks/useInfiniteImages";
+import useIntersectionObserver from "@/hooks/useIntersectionObserver";
+import { MasonrySkeleton } from "./masonryskeleton";
 
 export function Gallery() {
   const { images, loading, hasMore, loadMore } = useInfiniteImages();
@@ -43,13 +44,14 @@ export function Gallery() {
       </div>
 
       {/* Sentinel + optional spinner */}
-      <div ref={sentinel} className="h-10 flex items-center justify-center mt-4">
-        {loading && (
-          <span className="text-sm text-gray-500">Loading more…</span>
-        )}
-        {!hasMore && images.length > 0 && (
-          <span className="text-sm text-gray-400">You reached the end.</span>
-        )}
+      <div
+        ref={sentinel}
+        className="h-10 flex items-center justify-center mt-4"
+      >
+        {loading &&
+          Array.from({ length: 12 }).map((_, i) => (
+            <MasonrySkeleton key={`skel-${i}`}/>
+          ))}
       </div>
     </section>
   );

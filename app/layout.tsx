@@ -10,6 +10,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { metadata, viewport } from "./metadata";
 import ProgressBar from "@/components/progressbar"; // Import ProgressBar
+import BackToTop from "@/components/backtotop";
 
 export default function RootLayout({
   children,
@@ -38,14 +39,17 @@ export default function RootLayout({
         {/* Show the progress bar first */}
         <ProgressBar />
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-        <Navbar />
+          <Navbar />
           {/* Only show content once loading is false */}
           {!loading && (
             <div className="relative flex flex-col h-fit">
               <main>{children}</main>
-              <Footer />
             </div>
           )}
+          <Footer />
+
+          {/* Back to the top functionality */}
+          <BackToTop selector="#gallery" />
         </Providers>
       </body>
     </html>
